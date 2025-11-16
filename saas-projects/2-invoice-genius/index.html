@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InvoiceGenius - Gerador de Faturas Profissionais</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10 9 9 9 8 9"/>
+                    </svg>
+                    InvoiceGenius
+                </h1>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" id="clearFormBtn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/>
+                        </svg>
+                        Limpar
+                    </button>
+                    <button class="btn btn-primary" id="generatePdfBtn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Gerar PDF
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Form Section -->
+            <div class="form-section">
+                <div class="form-card">
+                    <h2 class="section-title">Informações da Empresa</h2>
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label>Nome da Empresa</label>
+                            <input type="text" id="companyName" placeholder="Sua Empresa Ltda">
+                        </div>
+                        <div class="form-group">
+                            <label>CNPJ/CPF</label>
+                            <input type="text" id="companyCnpj" placeholder="00.000.000/0000-00">
+                        </div>
+                        <div class="form-group">
+                            <label>Telefone</label>
+                            <input type="text" id="companyPhone" placeholder="(00) 0000-0000">
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Endereço</label>
+                            <input type="text" id="companyAddress" placeholder="Rua, Número, Bairro">
+                        </div>
+                        <div class="form-group">
+                            <label>Cidade/Estado</label>
+                            <input type="text" id="companyCity" placeholder="Cidade - UF">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="companyEmail" placeholder="contato@empresa.com">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <h2 class="section-title">Informações do Cliente</h2>
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label>Nome do Cliente</label>
+                            <input type="text" id="clientName" placeholder="Nome do Cliente">
+                        </div>
+                        <div class="form-group">
+                            <label>CNPJ/CPF</label>
+                            <input type="text" id="clientCnpj" placeholder="000.000.000-00">
+                        </div>
+                        <div class="form-group">
+                            <label>Telefone</label>
+                            <input type="text" id="clientPhone" placeholder="(00) 00000-0000">
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Endereço</label>
+                            <input type="text" id="clientAddress" placeholder="Rua, Número, Bairro">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="clientEmail" placeholder="cliente@email.com">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <h2 class="section-title">Detalhes da Fatura</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Número da Fatura</label>
+                            <input type="text" id="invoiceNumber" placeholder="#001">
+                        </div>
+                        <div class="form-group">
+                            <label>Data de Emissão</label>
+                            <input type="date" id="invoiceDate">
+                        </div>
+                        <div class="form-group">
+                            <label>Data de Vencimento</label>
+                            <input type="date" id="dueDate">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="items-header">
+                        <h2 class="section-title">Itens da Fatura</h2>
+                        <button class="btn btn-small btn-primary" id="addItemBtn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"/>
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                            </svg>
+                            Adicionar Item
+                        </button>
+                    </div>
+                    <div id="itemsList" class="items-list"></div>
+
+                    <div class="total-section">
+                        <div class="total-row">
+                            <span>Subtotal:</span>
+                            <span class="total-value" id="subtotal">R$ 0,00</span>
+                        </div>
+                        <div class="total-row">
+                            <span>Desconto:</span>
+                            <div class="discount-input">
+                                <input type="number" id="discount" min="0" max="100" value="0" step="0.1">
+                                <span>%</span>
+                            </div>
+                        </div>
+                        <div class="total-row total-final">
+                            <span>Total:</span>
+                            <span class="total-value" id="total">R$ 0,00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <h2 class="section-title">Observações</h2>
+                    <textarea id="notes" rows="4" placeholder="Informações adicionais, condições de pagamento, etc..."></textarea>
+                </div>
+            </div>
+
+            <!-- Preview Section -->
+            <div class="preview-section">
+                <div class="preview-header">
+                    <h2>Pré-visualização</h2>
+                </div>
+                <div class="invoice-preview" id="invoicePreview">
+                    <div class="invoice-document">
+                        <div class="invoice-header-doc">
+                            <div class="company-info">
+                                <h1 id="previewCompanyName">Sua Empresa</h1>
+                                <p id="previewCompanyCnpj">CNPJ: -</p>
+                                <p id="previewCompanyAddress">Endereço: -</p>
+                                <p id="previewCompanyCity">Cidade: -</p>
+                                <p id="previewCompanyPhone">Tel: -</p>
+                                <p id="previewCompanyEmail">Email: -</p>
+                            </div>
+                            <div class="invoice-info">
+                                <h2>FATURA</h2>
+                                <p><strong>Nº:</strong> <span id="previewInvoiceNumber">-</span></p>
+                                <p><strong>Emissão:</strong> <span id="previewInvoiceDate">-</span></p>
+                                <p><strong>Vencimento:</strong> <span id="previewDueDate">-</span></p>
+                            </div>
+                        </div>
+
+                        <div class="client-section">
+                            <h3>Faturado Para:</h3>
+                            <p><strong id="previewClientName">-</strong></p>
+                            <p id="previewClientCnpj">CNPJ/CPF: -</p>
+                            <p id="previewClientAddress">-</p>
+                            <p id="previewClientPhone">Tel: -</p>
+                            <p id="previewClientEmail">-</p>
+                        </div>
+
+                        <table class="items-table">
+                            <thead>
+                                <tr>
+                                    <th>Descrição</th>
+                                    <th>Qtd</th>
+                                    <th>Valor Unit.</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="previewItems">
+                                <tr>
+                                    <td colspan="4" class="empty-state">Nenhum item adicionado</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="invoice-totals">
+                            <div class="totals-row">
+                                <span>Subtotal:</span>
+                                <span id="previewSubtotal">R$ 0,00</span>
+                            </div>
+                            <div class="totals-row">
+                                <span>Desconto:</span>
+                                <span id="previewDiscount">0%</span>
+                            </div>
+                            <div class="totals-row total">
+                                <span>Total:</span>
+                                <span id="previewTotal">R$ 0,00</span>
+                            </div>
+                        </div>
+
+                        <div class="notes-section" id="previewNotesSection" style="display: none;">
+                            <h3>Observações:</h3>
+                            <p id="previewNotes"></p>
+                        </div>
+
+                        <div class="invoice-footer">
+                            <p>Gerado por InvoiceGenius - Gerador de Faturas Profissionais</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
