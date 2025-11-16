@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder Pro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <header><h1>📄 Resume Builder Pro</h1><button class="btn" id="exportBtn">💾 Exportar PDF</button></header>
+        <div class="main">
+            <div class="form-panel">
+                <h2>Informações Pessoais</h2>
+                <input type="text" id="fullName" placeholder="Nome Completo">
+                <input type="text" id="title" placeholder="Cargo/Título">
+                <input type="email" id="email" placeholder="Email">
+                <input type="tel" id="phone" placeholder="Telefone">
+                <textarea id="summary" placeholder="Resumo profissional..."></textarea>
+                <h2>Experiência</h2>
+                <button class="btn-small" id="addExpBtn">+ Adicionar Experiência</button>
+                <div id="expList"></div>
+                <h2>Educação</h2>
+                <button class="btn-small" id="addEduBtn">+ Adicionar Educação</button>
+                <div id="eduList"></div>
+                <h2>Habilidades</h2>
+                <input type="text" id="skillInput" placeholder="Digite e pressione Enter">
+                <div id="skillsList"></div>
+            </div>
+            <div class="preview-panel" id="preview">
+                <div class="resume">
+                    <div class="resume-header">
+                        <h1 id="previewName">Seu Nome</h1>
+                        <h3 id="previewTitle">Seu Cargo</h3>
+                        <p id="previewContact"></p>
+                    </div>
+                    <div class="resume-section">
+                        <h2>Resumo</h2>
+                        <p id="previewSummary"></p>
+                    </div>
+                    <div class="resume-section">
+                        <h2>Experiência</h2>
+                        <div id="previewExp"></div>
+                    </div>
+                    <div class="resume-section">
+                        <h2>Educação</h2>
+                        <div id="previewEdu"></div>
+                    </div>
+                    <div class="resume-section">
+                        <h2>Habilidades</h2>
+                        <div id="previewSkills"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

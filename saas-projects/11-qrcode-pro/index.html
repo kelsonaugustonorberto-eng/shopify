@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRCode Pro - Gerador Avançado</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <h1>📲 QRCode Pro</h1>
+        <div class="container">
+            <div class="form-section">
+                <select id="qrType">
+                    <option value="url">URL/Website</option>
+                    <option value="text">Texto</option>
+                    <option value="email">Email</option>
+                    <option value="phone">Telefone</option>
+                    <option value="sms">SMS</option>
+                    <option value="wifi">WiFi</option>
+                </select>
+                <textarea id="qrData" placeholder="Digite o conteúdo..."></textarea>
+                <div class="options">
+                    <label>Cor: <input type="color" id="qrColor" value="#000000"></label>
+                    <label>Fundo: <input type="color" id="qrBg" value="#ffffff"></label>
+                    <label>Tamanho: <input type="range" id="qrSize" min="200" max="800" value="400"></label>
+                </div>
+                <button class="btn" id="generateBtn">Gerar QR Code</button>
+            </div>
+            <div class="preview-section">
+                <div id="qrPreview"></div>
+                <div class="actions">
+                    <button class="btn" id="downloadBtn">⬇️ Download PNG</button>
+                    <button class="btn" id="downloadSvgBtn">⬇️ Download SVG</button>
+                </div>
+            </div>
+        </div>
+        <div class="history"><h3>Histórico</h3><div id="historyList"></div></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

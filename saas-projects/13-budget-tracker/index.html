@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Budget Tracker - Controle Financeiro</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<div class="app"><header><h1>💰 Budget Tracker</h1><div class="balance"><span>Saldo:</span><span id="balance" class="balance-value">R$ 0,00</span></div></header>
+<div class="stats"><div class="stat-card income"><h3>Receitas</h3><p id="income">R$ 0,00</p></div><div class="stat-card expense"><h3>Despesas</h3><p id="expenses">R$ 0,00</p></div></div>
+<div class="add-transaction"><h2>Nova Transação</h2><input type="text" id="description" placeholder="Descrição"><input type="number" id="amount" placeholder="Valor"><select id="type"><option value="income">Receita</option><option value="expense">Despesa</option></select><select id="category"><option>Alimentação</option><option>Transporte</option><option>Moradia</option><option>Lazer</option><option>Saúde</option><option>Outros</option></select><button class="btn" id="addBtn">Adicionar</button></div>
+<div class="transactions"><h2>Transações</h2><div id="transactionsList"></div></div></div>
+<script src="script.js"></script>
+</body>
+</html>

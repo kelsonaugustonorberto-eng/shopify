@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Scheduler - Agendador de Posts</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <header><h1>📱 Social Scheduler</h1>
+            <button class="btn" id="addPostBtn">➕ Agendar Post</button></header>
+        <div class="calendar" id="calendar"></div>
+        <div class="posts-list"><h2>Posts Agendados</h2><div id="postsList"></div></div>
+    </div>
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2>Agendar Novo Post</h2>
+            <input type="text" id="postContent" placeholder="Conteúdo do post...">
+            <select id="platform"><option>Instagram</option><option>Facebook</option><option>Twitter</option><option>LinkedIn</option></select>
+            <input type="datetime-local" id="scheduleTime">
+            <div class="modal-actions">
+                <button class="btn" id="savePost">Salvar</button>
+                <button class="btn-secondary" id="closeModal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
