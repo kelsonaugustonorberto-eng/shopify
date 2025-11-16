@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeTrack Pro - Rastreador de Tempo Profissional</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <h1>⏱️ TimeTrack Pro</h1>
+            <div class="stats">
+                <div class="stat-box">
+                    <span class="stat-value" id="totalTime">00:00:00</span>
+                    <span class="stat-label">Tempo Total Hoje</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-value" id="tasksCompleted">0</span>
+                    <span class="stat-label">Tarefas Concluídas</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+            <!-- Pomodoro Timer -->
+            <div class="timer-section">
+                <h2>Pomodoro Timer</h2>
+                <div class="pomodoro-timer">
+                    <div class="timer-display" id="pomodoroDisplay">25:00</div>
+                    <div class="timer-controls">
+                        <button class="btn btn-primary" id="startPomodoro">Iniciar</button>
+                        <button class="btn btn-secondary" id="pausePomodoro">Pausar</button>
+                        <button class="btn btn-secondary" id="resetPomodoro">Resetar</button>
+                    </div>
+                    <div class="pomodoro-settings">
+                        <label>Trabalho: <input type="number" id="workTime" value="25" min="1"> min</label>
+                        <label>Pausa: <input type="number" id="breakTime" value="5" min="1"> min</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Time Tracker -->
+            <div class="tracker-section">
+                <h2>Rastreador de Tempo</h2>
+                <div class="tracker-input">
+                    <input type="text" id="taskName" placeholder="Nome da tarefa...">
+                    <button class="btn btn-success" id="startTracking">▶ Iniciar</button>
+                </div>
+                <div id="currentTask" class="current-task" style="display: none;">
+                    <div class="task-info">
+                        <strong id="currentTaskName"></strong>
+                        <span class="task-timer" id="currentTaskTimer">00:00:00</span>
+                    </div>
+                    <button class="btn btn-danger" id="stopTracking">⏹ Parar</button>
+                </div>
+            </div>
+
+            <!-- Tasks List -->
+            <div class="tasks-section">
+                <div class="section-header">
+                    <h2>Tarefas de Hoje</h2>
+                    <div class="actions">
+                        <button class="btn btn-small" id="exportBtn">📊 Exportar</button>
+                        <button class="btn btn-small" id="clearBtn">🗑️ Limpar</button>
+                    </div>
+                </div>
+                <div id="tasksList" class="tasks-list"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

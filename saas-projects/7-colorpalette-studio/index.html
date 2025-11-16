@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColorPalette Studio - Gerador de Paletas de Cores</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <header>
+            <h1>🎨 ColorPalette Studio</h1>
+            <div class="actions">
+                <button class="btn" id="generateBtn">🎲 Gerar Nova Paleta</button>
+                <button class="btn" id="exportBtn">📥 Exportar</button>
+            </div>
+        </header>
+        <div class="palette" id="palette"></div>
+        <div class="controls">
+            <div class="mode-selector">
+                <button class="mode-btn active" data-mode="random">Aleatório</button>
+                <button class="mode-btn" data-mode="monochromatic">Monocromático</button>
+                <button class="mode-btn" data-mode="analogous">Análogo</button>
+                <button class="mode-btn" data-mode="complementary">Complementar</button>
+                <button class="mode-btn" data-mode="triadic">Tríade</button>
+            </div>
+        </div>
+        <div class="saved-palettes">
+            <h2>Paletas Salvas</h2>
+            <div id="savedList"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f172a;color:#fff;min-height:100vh;padding:20px}
+.app{max-width:1400px;margin:0 auto}
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px}
+h1{font-size:32px;background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.actions{display:flex;gap:12px}
+.btn{padding:12px 24px;border:none;border-radius:8px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-weight:600;cursor:pointer;transition:.3s}
+.btn:hover{transform:translateY(-2px);opacity:.9}
+.palette{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-bottom:40px}
+.color-card{aspect-ratio:1;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:.3s;position:relative;overflow:hidden}
+.color-card:hover{transform:scale(1.05);box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.color-code{background:rgba(0,0,0,.5);padding:8px 16px;border-radius:20px;font-weight:600;margin-top:auto;margin-bottom:20px}
+.controls{background:rgba(255,255,255,.05);backdrop-filter:blur(10px);border-radius:16px;padding:24px;margin-bottom:40px}
+.mode-selector{display:flex;gap:12px;flex-wrap:wrap}
+.mode-btn{padding:10px 20px;border:2px solid #334155;border-radius:8px;background:transparent;color:#fff;cursor:pointer;transition:.3s}
+.mode-btn.active{background:linear-gradient(135deg,#667eea,#764ba2);border-color:transparent}
+.saved-palettes{background:rgba(255,255,255,.05);backdrop-filter:blur(10px);border-radius:16px;padding:24px}
+.saved-palettes h2{margin-bottom:20px;font-size:20px}
+#savedList{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.saved-item{padding:16px;background:rgba(255,255,255,.05);border-radius:12px;cursor:pointer;transition:.3s}
+.saved-item:hover{background:rgba(255,255,255,.1)}
+.saved-colors{display:flex;gap:4px;margin-top:8px}
+.saved-color{width:40px;height:40px;border-radius:8px}
+@media(max-width:768px){.palette{grid-template-columns:repeat(2,1fr)}}
